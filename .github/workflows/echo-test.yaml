@@ -2,8 +2,41 @@ name: Echo-Test
 on: push
 
 jobs:
-    Greet:
-        runs-on: ubuntu-latest
-        steps:
-          - name: Say Hello CI
-            run: echo "Hello CI!"
+  Greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say Hello CI
+        run: echo "Hello CI!"
+  Linting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+      - name: Setup Environment
+        uses: actions/setup-node@v4
+      - name: Load & Cache Dependencies
+        uses: ./.github/actions/cached-deps
+      - name: Run Linting Rules
+        run: exec lint
+  Testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+      - name: Setup Environment
+        uses: actions/setup-node@v4
+      - name: Load & Cache Dependencies
+        uses: ./.github/actions/cached-deps
+      - name: Run Linting Rules
+        run: exec lint
+  Building:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+      - name: Setup Environment
+        uses: actions/setup-node@v4
+      - name: Load & Cache Dependencies
+        uses: ./.github/actions/cached-deps
+      - name: Run Linting Rules
+        run: exec lint
