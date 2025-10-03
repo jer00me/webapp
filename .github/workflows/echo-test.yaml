@@ -2,7 +2,8 @@ name: Echo-Test
 on: push
 
 jobs:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Say Hello CI
-        run: echo "Hello CI!"
+    Linting:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Say Hello CI
+            run: echo "Hello CI!"
