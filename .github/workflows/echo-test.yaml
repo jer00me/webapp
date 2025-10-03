@@ -2,7 +2,7 @@ name: Echo-Test
 on: push
 
 jobs:
-    Linting:
+    Greet:
         runs-on: ubuntu-latest
         steps:
           - name: Say Hello CI
